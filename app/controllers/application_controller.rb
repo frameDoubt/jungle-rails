@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def cart
-    # raise JSON.parse(cookies[:cart]).inspect
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
   end
   helper_method :cart
