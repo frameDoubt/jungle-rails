@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
   has_many :line_items
 
   monetize :total_cents, numericality: true
+  monetize cart_subtotal_cents, numericality: true
 
   validates :stripe_charge_id, presence: true
 
