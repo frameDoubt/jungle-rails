@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    
+    @cart
   end
   
   def create
@@ -10,9 +10,8 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
     
     if order.valid?
-      
-      empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
+      # empty_cart!
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
@@ -25,7 +24,7 @@ class OrdersController < ApplicationController
 
   def empty_cart!
     # empty hash means no products in cart :)
-    raise cart.inspect
+    
     
     update_cart({})
   end
