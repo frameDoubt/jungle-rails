@@ -18,7 +18,9 @@
         </tr>
       </thead>
       <tbody>
-        <%= render partial: "item_category", object: @categories %>
+        <% @categories.each do |category| %>
+          <%= render partial: "item_category", object: category.name %>
+        <% end %>
       </tbody>
     </table>
 
