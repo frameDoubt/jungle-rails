@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
       @user.email = nil
       expect(@user).to_not be_valid
     end
-    it "is not valid without a unique email" do
+    it "is not valid without a unique email, not case sensitive" do
       @user.save!
       @user2 = User.new(
         first_name: 'User',
