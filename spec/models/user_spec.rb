@@ -23,5 +23,16 @@ RSpec.describe User, type: :model do
       @user.password_confirmation = nil
       expect(@user).to_not be_valid
     end
+    it "is not valid without a unique email" do
+      @user.save!
+      @user2 = User.new(
+        first_name: 'User',
+        last_name: 'One',
+        email: 'emailOne@email.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+      expect(@user2).to_not be_valid
+    end
   end
 end
