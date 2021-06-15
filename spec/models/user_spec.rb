@@ -27,6 +27,14 @@ RSpec.describe User, type: :model do
       @user.first_name = nil
       expect(@user).to_not be_valid
     end
+    it "is not valid without a last_name" do
+      @user.last_name = nil
+      expect(@user).to_not be_valid
+    end
+    it "is not valid without a email" do
+      @user.email = nil
+      expect(@user).to_not be_valid
+    end
     it "is not valid without a unique email" do
       @user.save!
       @user2 = User.new(
