@@ -23,6 +23,10 @@ RSpec.describe User, type: :model do
       @user.password_confirmation = nil
       expect(@user).to_not be_valid
     end
+    it "is not valid without a first_name" do
+      @user.first_name = nil
+      expect(@user).to_not be_valid
+    end
     it "is not valid without a unique email" do
       @user.save!
       @user2 = User.new(
