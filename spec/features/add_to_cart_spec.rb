@@ -18,9 +18,9 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
   scenario "They see product information, like details" do
     # ACT
     visit root_path
-    find('.pull-right', match: :first).click
+    click_on "Add"
     # DEBUG / VERIFY
-    save_screenshot 'product_details_page.png'
-    expect(page).to have_content 'My Cart (1)'
+    save_screenshot 'add_to_cart.png'
+    expect(page).to have_css '.main-img'
   end
 end
