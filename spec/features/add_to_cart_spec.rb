@@ -15,12 +15,12 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     end
   end
 
-  scenario "They see product information, like details" do
+  scenario "They see My Cart content increase" do
     # ACT
     visit root_path
-    click_on "Add"
+    find('.btn-primary', match: :first).click
     # DEBUG / VERIFY
     save_screenshot 'add_to_cart.png'
-    expect(page).to have_css '.main-img'
+    expect(page).to have_content ' My Cart (1) '
   end
 end

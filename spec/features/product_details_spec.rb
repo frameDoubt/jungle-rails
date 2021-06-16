@@ -21,6 +21,6 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     find('.pull-right', match: :first).click
     # DEBUG / VERIFY
     save_screenshot 'product_details_page.png'
-    expect(page).to have_content 'My Cart (1)'
+    expect(page).to have_css '.main-img'
   end
 end
